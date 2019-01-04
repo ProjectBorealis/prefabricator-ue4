@@ -1,0 +1,9 @@
+{
+	"BuildId": "4541578",
+	"Modules": 
+	{
+		"PrefabricatorEditor": "UE4Editor-PrefabricatorEditor.dll",
+		"PrefabricatorEditorPostInit": "UE4Editor-PrefabricatorEditorPostInit.dll",
+		"PrefabricatorRuntime": "UE4Editor-PrefabricatorRuntime.dll"
+	}
+}
