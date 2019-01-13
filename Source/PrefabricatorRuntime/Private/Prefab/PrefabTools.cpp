@@ -147,6 +147,11 @@ void FPrefabTools::CreatePrefabFromActors(const TArray<AActor*>& InActors)
 		return;
 	}
 
+	TSharedPtr<IPrefabricatorService> Service = FPrefabricatorService::Get();
+	if (Service.IsValid()) {
+		Service->BeginTransaction(LOCTEXT("TransLabel_CreatePrefab", "Create Prefab"));
+	}
+
 	UWorld* World = Actors[0]->GetWorld();
 
 	FVector Pivot = FPrefabricatorAssetUtils::FindPivot(Actors);
@@ -159,15 +164,17 @@ void FPrefabTools::CreatePrefabFromActors(const TArray<AActor*>& InActors)
 	PrefabActor->PrefabComponent->PrefabAssetInterface = PrefabAsset;
 	// Attach the actors to the prefab
 	for (AActor* Actor : Actors) {
-		if (Actor->GetRootComponent()) {
-			Actor->GetRootComponent()->SetMobility(Mobility);
-		}
 		ParentActors(PrefabActor, Actor);
+	}
+
+	if (Service.IsValid()) {
+		Service->EndTransaction();
 	}
 
 	SaveStateToPrefabAsset(PrefabActor);
 
 	SelectPrefabActor(PrefabActor);
+
 }
 
 void FPrefabTools::AssignAssetUserData(AActor* InActor, const FGuid& InItemID, APrefabActor* Prefab)
@@ -329,9 +336,10 @@ namespace {
 				continue;
 			}
 
+			bool bForceSerialize = FPrefabTools::ShouldForcePropertySerialization(Property->GetFName());
+
 			// Check if it has the default value
-			FString PropertyName = Property->GetName();
-			if (HasDefaultValue(ObjToSerialize, PropertyName)) {
+			if (!bForceSerialize && HasDefaultValue(ObjToSerialize, Property->GetName())) {
 				continue;
 			}
 
@@ -347,6 +355,7 @@ namespace {
 			UPrefabricatorProperty* PrefabProperty = nullptr;
 			FString PropertyName = Property->GetName();
 
+			
 			if (ShouldSkipSerialization(Property, ObjToSerialize, PrefabActor)) {
 				continue;
 			}
@@ -407,6 +416,15 @@ bool FPrefabTools::ShouldIgnorePropertySerialization(const FName& InPropertyName
 	};
 
 	return IgnoredFields.Contains(InPropertyName);
+}
+
+bool FPrefabTools::ShouldForcePropertySerialization(const FName& PropertyName)
+{
+	static const TSet<FName> FieldsToForceSerialize = {
+		"Mobility"
+	};
+
+	return FieldsToForceSerialize.Contains(PropertyName);
 }
 
 void FPrefabTools::SaveStateToPrefabAsset(AActor* InActor, APrefabActor* PrefabActor, FPrefabricatorActorData& OutActorData)
