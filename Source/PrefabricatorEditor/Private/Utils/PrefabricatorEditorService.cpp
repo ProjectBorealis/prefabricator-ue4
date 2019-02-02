@@ -6,14 +6,13 @@
 #include "Asset/PrefabricatorAsset.h"
 #include "Prefab/PrefabActor.h"
 #include "Prefab/PrefabComponent.h"
+#include "Utils/PrefabEditorTools.h"
 
 #include "AssetToolsModule.h"
-#include "ContentBrowserModule.h"
 #include "Editor.h"
 #include "Editor/EditorEngine.h"
 #include "EditorViewportClient.h"
 #include "Engine/Selection.h"
-#include "IContentBrowserSingleton.h"
 #include "LevelEditor.h"
 #include "LevelEditorViewport.h"
 #include "PropertyEditorModule.h"
@@ -58,20 +57,7 @@ int FPrefabricatorEditorService::GetNumSelectedActors()
 
 UPrefabricatorAsset* FPrefabricatorEditorService::CreatePrefabAsset()
 {
-	IContentBrowserSingleton& ContentBrowserSingleton = FModuleManager::LoadModuleChecked<FContentBrowserModule>("ContentBrowser").Get();
-	TArray<FString> SelectedFolders;
-	ContentBrowserSingleton.GetSelectedPathViewFolders(SelectedFolders);
-	FString PrefabFolder = SelectedFolders.Num() > 0 ? SelectedFolders[0] : "/Game";
-	FString PrefabPath = PrefabFolder + "/Prefab";
-
-	FString PackageName, AssetName;
-	IAssetTools& AssetTools = FModuleManager::Get().LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
-	AssetTools.CreateUniqueAssetName(*PrefabPath, TEXT(""), PackageName, AssetName);
-	UPrefabricatorAsset* PrefabAsset = Cast<UPrefabricatorAsset>(AssetTools.CreateAsset(AssetName, PrefabFolder, UPrefabricatorAsset::StaticClass(), nullptr));
-
-	ContentBrowserSingleton.SyncBrowserToAssets(TArray<UObject*>({ PrefabAsset }));
-
-	return PrefabAsset;
+	return FPrefabEditorTools::CreateAssetOnContentBrowser<UPrefabricatorAsset>("Prefab", true);
 }
 
 FVector FPrefabricatorEditorService::SnapToGrid(const FVector& InLocation)

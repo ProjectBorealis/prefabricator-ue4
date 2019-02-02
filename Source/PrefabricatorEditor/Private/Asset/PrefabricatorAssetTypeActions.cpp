@@ -3,8 +3,10 @@
 #include "Asset/PrefabricatorAssetTypeActions.h"
 
 #include "Asset/PrefabricatorAsset.h"
+#include "Asset/PrefabricatorAsset.h"
 #include "Prefab/PrefabTools.h"
 #include "PrefabricatorEditorModule.h"
+#include "Utils/PrefabEditorTools.h"
 
 #include "AssetToolsModule.h"
 #include "ContentBrowserModule.h"
@@ -67,9 +69,13 @@ void FPrefabricatorAssetTypeActions::ExecuteCreatePrefabCollection(TArray<TWeakO
 		}
 	}
 
+	UPrefabricatorAssetCollection* Collection = FPrefabEditorTools::CreateAssetOnContentBrowser<UPrefabricatorAssetCollection>("PrefabCollection", true);
 	for (UPrefabricatorAsset* PrefabAsset : PrefabAssets) {
-
+		FPrefabricatorAssetCollectionItem Item;
+		Item.PrefabAsset = PrefabAsset;
+		Collection->Prefabs.Add(Item);
 	}
+	Collection->Modify();
 }
 
 void FPrefabricatorAssetTypeActions::GetActions(const TArray<UObject*>& InObjects, FMenuBuilder& MenuBuilder)
