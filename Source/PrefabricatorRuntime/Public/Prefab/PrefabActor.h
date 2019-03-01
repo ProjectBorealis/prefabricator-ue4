@@ -10,7 +10,7 @@ UCLASS(Blueprintable, ConversionRoot, ComponentWrapperClass)
 class PREFABRICATORRUNTIME_API APrefabActor : public AActor {
 	GENERATED_UCLASS_BODY()
 public:
-	UPROPERTY(BlueprintReadOnly, Category = "Components", meta = (ExposeFunctionCategories = "Prefabricator", AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (ExposeFunctionCategories = "Prefabricator,Mobility", AllowPrivateAccess = "true"))
 	class UPrefabComponent* PrefabComponent;
 
 public:
@@ -96,4 +96,15 @@ public:
 private:
 	TArray<FPrefabBuildSystemCommandPtr> BuildStack;
 	double TimePerFrame = 0;
+};
+
+
+
+UCLASS(Blueprintable, ConversionRoot, ComponentWrapperClass)
+class PREFABRICATORRUNTIME_API AReplicablePrefabActor : public APrefabActor {
+	GENERATED_UCLASS_BODY()
+public:
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	virtual void BeginPlay() override;
+
 };
