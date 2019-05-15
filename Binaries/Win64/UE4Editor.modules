@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
 	"BuildId": "7c5b0b9f-b3d7-468c-a619-943426472419",
-=======
-	"BuildId": "31150774-954c-49a3-8c42-590a7b8c0754",
->>>>>>> 2a58f96c07ebbf35de79a49c2f9bac6e3100aa91
 	"Modules": 
 	{
 		"PrefabricatorEditor": "UE4Editor-PrefabricatorEditor.dll",
