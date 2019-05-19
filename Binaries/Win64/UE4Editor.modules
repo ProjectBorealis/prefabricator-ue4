@@ -1,9 +1,0 @@
-{
-	"BuildId": "04c19687-b8b5-4357-a0f6-06270fab4a02",
-	"Modules": 
-	{
-		"PrefabricatorEditor": "UE4Editor-PrefabricatorEditor.dll",
-		"PrefabricatorEditorPostInit": "UE4Editor-PrefabricatorEditorPostInit.dll",
-		"PrefabricatorRuntime": "UE4Editor-PrefabricatorRuntime.dll"
-	}
-}
