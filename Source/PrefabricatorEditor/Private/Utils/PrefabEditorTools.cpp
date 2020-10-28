@@ -24,6 +24,7 @@
 #include "Modules/ModuleManager.h"
 #include "ObjectTools.h"
 #include "ThumbnailRendering/SceneThumbnailInfo.h"
+#include "Misc/RedirectCollector.h"
 
 namespace {
 	template<typename T>
@@ -38,6 +39,16 @@ namespace {
 		FString PackageName, AssetName;
 		IAssetTools& AssetTools = FModuleManager::Get().LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
 		AssetTools.CreateUniqueAssetName(*AssetPath, TEXT(""), PackageName, AssetName);
+
+		// FIX IN MEMORY REDIRECTORS
+		const FName AssetOriginalPath(*(AssetFolder / AssetName + "." + AssetName));
+		const FName FoundRedirection = GRedirectCollector.GetAssetPathRedirection(AssetOriginalPath);
+		if (FoundRedirection != NAME_None)
+		{
+			GRedirectCollector.RemoveAssetPathRedirection(AssetOriginalPath);
+		}
+		// FIX
+
 		T* AssetObject = Cast<T>(AssetTools.CreateAsset(AssetName, AssetFolder, T::StaticClass(), nullptr));
 		if (AssetObject && bSyncBrowserToAsset) {
 			ContentBrowserSingleton.SyncBrowserToAssets(TArray<UObject*>({ AssetObject }));
