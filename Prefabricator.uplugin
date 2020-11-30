@@ -6,9 +6,8 @@
 	"CreatedBy" : "Code Respawn",
 	"CreatedByURL" : "http://prefabricator.io",
 	"DocsURL": "http://docs.prefabricator.io",
-	"EngineVersion" : "4.25.0",
 	"Description" : "Create Prefabs in Unreal Engine",
-	"Category" : "Prefab",
+	"Category" : "Editor",
 	"EnabledByDefault" : true,
 	"MarketplaceURL" : "com.epicgames.launcher://ue/marketplace/content/39ccbbf668e84847890992df9922e355",
 	
