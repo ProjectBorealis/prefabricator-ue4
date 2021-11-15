@@ -8,7 +8,7 @@
 	"DocsURL": "http://docs.prefabricator.dev",
 	"Description" : "Create Prefabs in Unreal Engine",
 	"Category" : "Editor",
-	"EnabledByDefault" : true,
+	"EnabledByDefault" : false,
 	"MarketplaceURL" : "com.epicgames.launcher://ue/marketplace/content/39ccbbf668e84847890992df9922e355",
 	
 	"Modules" :
