@@ -3,6 +3,9 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
+#if WITH_EDITORONLY_DATA
+#include "Engine/Texture2D.h"
+#endif
 #include "PrefabComponent.generated.h"
 
 class UPrefabricatorAsset;

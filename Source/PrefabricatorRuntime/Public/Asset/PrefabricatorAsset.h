@@ -3,6 +3,9 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/EngineTypes.h"
+#if WITH_EDITORONLY_DATA
+#include "Engine/Texture2D.h"
+#endif
 #include "PrefabricatorAsset.generated.h"
 
 class APrefabActor;
