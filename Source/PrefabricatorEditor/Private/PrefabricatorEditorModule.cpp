@@ -43,7 +43,7 @@ class FPrefabricatorEditorModule : public IPrefabricatorEditorModule
 		MapChangeHook.Initialize();
 
 		// Register asset types
-		IAssetTools& AssetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
+		IAssetTools& AssetTools = FModuleManager::Get().LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
 		RegisterAssetTypeAction(AssetTools, MakeShareable(new FPrefabricatorAssetTypeActions));
 		RegisterAssetTypeAction(AssetTools, MakeShareable(new FPrefabricatorAssetCollectionTypeActions));
 
@@ -68,7 +68,7 @@ class FPrefabricatorEditorModule : public IPrefabricatorEditorModule
 	}
 
 	void RegisterCustomClassLayouts() {
-		FPropertyEditorModule& PropertyEditorModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
+		FPropertyEditorModule& PropertyEditorModule = FModuleManager::Get().LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 		RegisterCustomClassLayout<FPrefabActorCustomization>("PrefabActor", PropertyEditorModule);
 		RegisterCustomClassLayout<FPrefabRandomizerCustomization>("PrefabRandomizer", PropertyEditorModule);
 		RegisterCustomClassLayout<FPrefabricatorAssetCustomization>("PrefabricatorAsset", PropertyEditorModule);
@@ -76,7 +76,7 @@ class FPrefabricatorEditorModule : public IPrefabricatorEditorModule
 	}
 
 	void UnregisterCustomClassLayouts() {
-		FPropertyEditorModule& PropertyEditorModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
+		FPropertyEditorModule& PropertyEditorModule = FModuleManager::Get().LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
 		for (const FName& ClassName : RegisteredCustomClassLayouts) {
 			PropertyEditorModule.UnregisterCustomClassLayout(ClassName);
 		}
@@ -120,7 +120,7 @@ class FPrefabricatorEditorModule : public IPrefabricatorEditorModule
 	}
 
 	virtual void UpgradePrefabAssets() override {
-		FAssetRegistryModule& AssetRegistryModule = FModuleManager::LoadModuleChecked<FAssetRegistryModule>("AssetRegistry");
+		FAssetRegistryModule& AssetRegistryModule = FModuleManager::Get().LoadModuleChecked<FAssetRegistryModule>("AssetRegistry");
 		TArray<FAssetData> AssetDataList;
 		AssetRegistryModule.Get().GetAssetsByClass(FName("PrefabricatorAsset"), AssetDataList);
 		for (const FAssetData& AssetData : AssetDataList) {

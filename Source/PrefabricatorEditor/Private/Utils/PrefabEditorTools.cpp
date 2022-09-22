@@ -30,7 +30,7 @@ namespace {
 	template<typename T>
 	static T* CreateAssetOnContentBrowser(const FString& InAssetName, bool bSyncBrowserToAsset)
 	{
-		IContentBrowserSingleton& ContentBrowserSingleton = FModuleManager::LoadModuleChecked<FContentBrowserModule>("ContentBrowser").Get();
+		IContentBrowserSingleton& ContentBrowserSingleton = FModuleManager::Get().LoadModuleChecked<FContentBrowserModule>("ContentBrowser").Get();
 		TArray<FString> SelectedFolders;
 		ContentBrowserSingleton.GetSelectedPathViewFolders(SelectedFolders);
 		FString AssetFolder = SelectedFolders.Num() > 0 ? SelectedFolders[0] : "/Game";
@@ -177,7 +177,7 @@ void FPrefabEditorTools::AssignPrefabAssetThumbnail(UPrefabricatorAssetInterface
 	ThumbnailByteArray.AddUninitialized(MemorySize);
 	FMemory::Memcpy(&(ThumbnailByteArray[0]), &(InBitmap[0]), MemorySize);
 
-	FAssetToolsModule& AssetToolsModule = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools");
+	FAssetToolsModule& AssetToolsModule = FModuleManager::Get().LoadModuleChecked<FAssetToolsModule>("AssetTools");
 
 	//check if each asset should receive the new thumb nail
 	{

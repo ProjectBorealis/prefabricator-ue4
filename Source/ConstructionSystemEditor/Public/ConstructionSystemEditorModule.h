@@ -26,7 +26,7 @@ public:
 	 */
 	static inline IConstructionSystemEditorModule& Get()
 	{
-		return FModuleManager::LoadModuleChecked<IConstructionSystemEditorModule>("ConstructionSystemEditor");
+		return FModuleManager::Get().LoadModuleChecked<IConstructionSystemEditorModule>("ConstructionSystemEditor");
 	}
 
 	/**

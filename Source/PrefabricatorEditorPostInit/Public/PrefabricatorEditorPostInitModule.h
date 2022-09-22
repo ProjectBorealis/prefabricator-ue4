@@ -24,7 +24,7 @@ public:
 	 */
 	static inline IPrefabricatorEditorPostInitModule& Get()
 	{
-		return FModuleManager::LoadModuleChecked<IPrefabricatorEditorPostInitModule>("PrefabricatorEditorPostInit");
+		return FModuleManager::Get().LoadModuleChecked<IPrefabricatorEditorPostInitModule>("PrefabricatorEditorPostInit");
 	}
 
 	/**

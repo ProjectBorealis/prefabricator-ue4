@@ -20,7 +20,7 @@ public:
 	 */
 	static inline IPrefabricatorRuntime& Get()
 	{
-		return FModuleManager::LoadModuleChecked<IPrefabricatorRuntime>( "PrefabricatorRuntime" );
+		return FModuleManager::Get().LoadModuleChecked<IPrefabricatorRuntime>( "PrefabricatorRuntime" );
 	}
 
 	/**

@@ -20,7 +20,7 @@ public:
 	 */
 	static inline IConstructionSystemRuntime& Get()
 	{
-		return FModuleManager::LoadModuleChecked<IConstructionSystemRuntime>( "ConstructionSystemRuntime" );
+		return FModuleManager::Get().LoadModuleChecked<IConstructionSystemRuntime>( "ConstructionSystemRuntime" );
 	}
 
 	/**
