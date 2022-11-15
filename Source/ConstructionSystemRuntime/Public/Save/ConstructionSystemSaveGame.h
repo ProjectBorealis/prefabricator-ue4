@@ -13,7 +13,7 @@ struct CONSTRUCTIONSYSTEMRUNTIME_API FConstructionSystemSaveConstructedItem {
 	GENERATED_BODY()
 
 	UPROPERTY()
-	UPrefabricatorAssetInterface* PrefabAsset;
+	UPrefabricatorAssetInterface* PrefabAsset = nullptr;
 
 	UPROPERTY()
 	int32 Seed;
