@@ -49,9 +49,9 @@ namespace {
 		AssetTools.CreateUniqueAssetName(*AssetPath, TEXT(""), PackageName, AssetName);
 
 		// FIX IN MEMORY REDIRECTORS
-		const FName AssetOriginalPath(*(AssetFolder / AssetName + "." + AssetName));
-		const FName FoundRedirection = GRedirectCollector.GetAssetPathRedirection(AssetOriginalPath);
-		if (FoundRedirection != NAME_None)
+		const FSoftObjectPath AssetOriginalPath(AssetFolder / AssetName + "." + AssetName);
+		const FSoftObjectPath FoundRedirection = GRedirectCollector.GetAssetPathRedirection(AssetOriginalPath);
+		if (!FoundRedirection.IsNull())
 		{
 			GRedirectCollector.RemoveAssetPathRedirection(AssetOriginalPath);
 		}
