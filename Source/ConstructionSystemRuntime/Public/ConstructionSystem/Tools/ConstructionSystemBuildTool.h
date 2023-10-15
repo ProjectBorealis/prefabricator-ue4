@@ -56,10 +56,10 @@ public:
 
 private:
 	UPROPERTY(Transient)
-	UConstructionSystemCursor* Cursor;
+	TObjectPtr<UConstructionSystemCursor> Cursor;
 
 	UPROPERTY(Transient)
-	UPrefabricatorAssetInterface* ActivePrefabAsset;
+	TObjectPtr<UPrefabricatorAssetInterface> ActivePrefabAsset;
 
 	int32 CursorRotationStep = 0;
 	ECollisionChannel PrefabSnapChannel;

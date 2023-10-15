@@ -62,8 +62,8 @@ void UConstructionSystemComponent::SetActiveTool(EConstructionSystemToolType InT
 		EConstructionSystemToolType OldToolType = ActiveToolType;
 		EConstructionSystemToolType NewToolType = InToolType;
 
-		UConstructionSystemTool** OldToolPtr = Tools.Find(OldToolType);
-		UConstructionSystemTool** NewToolPtr = Tools.Find(NewToolType);
+		TObjectPtr<UConstructionSystemTool>* OldToolPtr = Tools.Find(OldToolType);
+		TObjectPtr<UConstructionSystemTool>* NewToolPtr = Tools.Find(NewToolType);
 
 		OldTool = OldToolPtr ? *OldToolPtr : nullptr;
 		NewTool = NewToolPtr ? *NewToolPtr : nullptr;
@@ -91,7 +91,7 @@ UConstructionSystemTool* UConstructionSystemComponent::GetActiveTool()
 
 UConstructionSystemTool* UConstructionSystemComponent::GetTool(EConstructionSystemToolType InToolType)
 {
-	UConstructionSystemTool** ToolPtr = Tools.Find(InToolType);
+	TObjectPtr<UConstructionSystemTool>* ToolPtr = Tools.Find(InToolType);
 	return ToolPtr ? *ToolPtr : nullptr;
 }
 
@@ -156,7 +156,7 @@ void UConstructionSystemComponent::_CreateTool(EConstructionSystemToolType ToolT
 	UConstructionSystemTool* Tool = NewObject<UConstructionSystemTool>(this, InToolClass);
 	if (Tool) {
 		Tool->InitializeTool(this);
-		UConstructionSystemTool*& ToolRef = Tools.FindOrAdd(ToolType);
+		TObjectPtr<UConstructionSystemTool>& ToolRef = Tools.FindOrAdd(ToolType);
 		ToolRef = Tool;
 	}
 }

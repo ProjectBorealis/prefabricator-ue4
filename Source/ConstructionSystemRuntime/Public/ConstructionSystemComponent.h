@@ -80,10 +80,10 @@ private:
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cursor")
-	UMaterialInterface* CursorMaterial;
+	TObjectPtr<UMaterialInterface> CursorMaterial;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cursor")
-	UMaterialInterface* CursorInvalidMaterial;
+	TObjectPtr<UMaterialInterface> CursorInvalidMaterial;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cursor")
 	float TraceStartDistance = 1000;
@@ -92,7 +92,7 @@ public:
 	float TraceSweepRadius = 40;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera")
-	AActor* ConstructionCameraActor;
+	TObjectPtr<AActor> ConstructionCameraActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera")
 	float ConstructionCameraTransitionTime = 0.15f;
@@ -104,16 +104,16 @@ public:
 	TSubclassOf<UUserWidget> BuildMenuUI;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-	UConstructionSystemUIAsset* BuildMenuData;
+	TObjectPtr<UConstructionSystemUIAsset> BuildMenuData;
 
 	UPROPERTY(Transient)
-	UUserWidget* BuildMenuUIInstance;
+	TObjectPtr<UUserWidget> BuildMenuUIInstance;
 
 	UPROPERTY(Transient)
 	EConstructionSystemToolType ActiveToolType = EConstructionSystemToolType::BuildTool;
 
 	UPROPERTY(Transient)
-	TMap<EConstructionSystemToolType, UConstructionSystemTool*> Tools;
+	TMap<EConstructionSystemToolType, TObjectPtr<UConstructionSystemTool>> Tools;
 
 private:
 	bool bConstructionSystemEnabled = false;

@@ -10,7 +10,7 @@ class PREFABRICATORRUNTIME_API APrefabDebugActor : public AActor {
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Debug")
-	AActor* Actor;
+	TObjectPtr<AActor> Actor;
 
 	UPROPERTY()
 	TArray<uint8> ActorData;

@@ -13,7 +13,7 @@ class PREFABRICATORRUNTIME_API APrefabActor : public AActor {
 	GENERATED_UCLASS_BODY()
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (ExposeFunctionCategories = "Prefabricator,Mobility", AllowPrivateAccess = "true"))
-	class UPrefabComponent* PrefabComponent;
+	TObjectPtr<class UPrefabComponent> PrefabComponent;
 
 public:
 	/// AActor Interface 

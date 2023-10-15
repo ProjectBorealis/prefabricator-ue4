@@ -22,7 +22,7 @@ protected:
 
 private:
 	/** The static mesh actor used to display all static mesh thumbnails */
-	class APrefabActor* PreviewActor;
+	TObjectPtr<class APrefabActor> PreviewActor;
 	FBoxSphereBounds Bounds;
 };
 

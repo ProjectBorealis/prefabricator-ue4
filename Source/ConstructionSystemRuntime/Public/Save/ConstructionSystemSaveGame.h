@@ -13,10 +13,10 @@ struct CONSTRUCTIONSYSTEMRUNTIME_API FConstructionSystemSaveConstructedItem {
 	GENERATED_BODY()
 
 	UPROPERTY()
-	UPrefabricatorAssetInterface* PrefabAsset = nullptr;
+	TObjectPtr<UPrefabricatorAssetInterface> PrefabAsset;
 
 	UPROPERTY()
-	int32 Seed;
+	int32 Seed = 0;
 
 	UPROPERTY()
 	FTransform Transform;

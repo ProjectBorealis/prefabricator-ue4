@@ -95,7 +95,7 @@ class CONSTRUCTIONSYSTEMRUNTIME_API APrefabricatorConstructionSnap : public AAct
 
 private:
 	UPROPERTY(Category = "Prefabricator", VisibleAnywhere, BlueprintReadOnly, meta = (ExposeFunctionCategories = "Prefabricator", AllowPrivateAccess = "true"))
-	class UPrefabricatorConstructionSnapComponent* ConstructionSnapComponent;
+	TObjectPtr<class UPrefabricatorConstructionSnapComponent> ConstructionSnapComponent;
 
 public:
 	/** Returns StaticMeshComponent subobject **/

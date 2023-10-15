@@ -15,7 +15,7 @@ public:
 private:
 #if WITH_EDITORONLY_DATA
 	UPROPERTY()
-	UTexture2D* EditorSpriteTexture;
+	TObjectPtr<UTexture2D> EditorSpriteTexture;
 #endif // WITH_EDITORONLY_DATA
 };
 
@@ -28,7 +28,7 @@ public:
 	TArray<TWeakObjectPtr<class APrefabActor>> LinkedActors;
 
 	UPROPERTY()
-	UPrefabSeedLinkerComponent* SeedLinkerComponent;
+	TObjectPtr<UPrefabSeedLinkerComponent> SeedLinkerComponent;
 
 public:
 

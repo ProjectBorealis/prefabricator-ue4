@@ -47,16 +47,16 @@ private:
 
 private:
 	UPROPERTY(Transient)
-	APrefabActor* CursorGhostActor = nullptr;
+	TObjectPtr<APrefabActor> CursorGhostActor;
 
 	UPROPERTY(Transient)
 	int32 CursorSeed = 0;
 
 	UPROPERTY(Transient)
-	UMaterialInterface* CursorMaterial;
+	TObjectPtr<UMaterialInterface> CursorMaterial;
 
 	UPROPERTY(Transient)
-	UMaterialInterface* CursorInvalidMaterial;
+	TObjectPtr<UMaterialInterface> CursorInvalidMaterial;
 
 	UPROPERTY(Transient)
 	TArray<UPrefabricatorConstructionSnapComponent*> SnapComponents;

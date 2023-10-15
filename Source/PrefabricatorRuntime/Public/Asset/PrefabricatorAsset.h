@@ -149,7 +149,7 @@ public:
 
 	/** Information for thumbnail rendering */
 	UPROPERTY()
-	class UThumbnailInfo* ThumbnailInfo;
+	TObjectPtr<class UThumbnailInfo> ThumbnailInfo;
 
 	UPROPERTY()
 	uint32 Version;
