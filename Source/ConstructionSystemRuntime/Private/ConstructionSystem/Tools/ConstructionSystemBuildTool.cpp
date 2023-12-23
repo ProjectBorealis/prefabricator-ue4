@@ -1,4 +1,4 @@
-//$ Copyright 2015-22, Code Respawn Technologies Pvt Ltd - All Rights Reserved $//
+//$ Copyright 2015-23, Code Respawn Technologies Pvt Ltd - All Rights Reserved $//
 
 #include "ConstructionSystem/Tools/ConstructionSystemBuildTool.h"
 
@@ -7,15 +7,13 @@
 #include "ConstructionSystem/ConstructionSystemSnap.h"
 #include "ConstructionSystemComponent.h"
 #include "Prefab/PrefabActor.h"
-#include "Prefab/PrefabComponent.h"
 #include "Prefab/PrefabTools.h"
-#include "Utils/ConstructionSystemDefs.h"
 #include "Utils/ConstructionSystemUtils.h"
-#include "Utils/PrefabricatorFunctionLibrary.h"
 
 #include "CollisionQueryParams.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/World.h"
+#include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "Materials/MaterialInterface.h"
 
