@@ -12,6 +12,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ConstructionSystemSaveGame)
+
 DEFINE_LOG_CATEGORY_STATIC(LogConstructionSaveSystem, Log, All);
 
 void UConstructionSystemSaveSystem::SaveConstructionSystemLevel(const UObject* InWorldContextObject, const FString& InSaveSlotName, int32 InUserIndex, bool bSavePlayerState)

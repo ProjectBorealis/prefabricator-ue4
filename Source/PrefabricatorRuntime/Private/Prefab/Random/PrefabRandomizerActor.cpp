@@ -14,6 +14,8 @@
 #include "Math/RandomStream.h"
 #include "UObject/ConstructorHelpers.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrefabRandomizerActor)
+
 APrefabRandomizer::APrefabRandomizer(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {

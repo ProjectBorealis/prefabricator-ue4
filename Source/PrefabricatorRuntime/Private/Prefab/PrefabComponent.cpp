@@ -11,6 +11,8 @@
 #include "Engine/Texture2D.h"
 #include "UObject/ConstructorHelpers.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrefabComponent)
+
 DEFINE_LOG_CATEGORY_STATIC(LogPrefabComponent, Log, All);
 
 UPrefabComponent::UPrefabComponent(const FObjectInitializer& ObjectInitializer)

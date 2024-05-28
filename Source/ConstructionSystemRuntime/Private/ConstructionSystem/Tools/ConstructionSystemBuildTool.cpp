@@ -17,6 +17,8 @@
 #include "GameFramework/PlayerController.h"
 #include "Materials/MaterialInterface.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ConstructionSystemBuildTool)
+
 void UConstructionSystemBuildTool::InitializeTool(UConstructionSystemComponent* ConstructionComponent)
 {
 	UConstructionSystemTool::InitializeTool(ConstructionComponent);

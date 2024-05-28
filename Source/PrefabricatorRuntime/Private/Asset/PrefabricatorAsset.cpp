@@ -12,6 +12,8 @@
 #include "Internationalization/Regex.h"
 #include "Misc/PackageName.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrefabricatorAsset)
+
 DEFINE_LOG_CATEGORY_STATIC(LogPrefabricatorAsset, Log, All);
 
 UPrefabricatorAsset::UPrefabricatorAsset(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {

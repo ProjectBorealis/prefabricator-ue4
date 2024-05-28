@@ -9,6 +9,8 @@
 
 #include "Engine/Engine.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrefabricatorFunctionLibrary)
+
 APrefabActor* UPrefabricatorBlueprintLibrary::SpawnPrefab(const UObject* WorldContextObject, UPrefabricatorAssetInterface* Prefab, const FTransform& Transform, int32 Seed)
 {
 	APrefabActor* PrefabActor = nullptr;

@@ -16,6 +16,8 @@
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ConstructionSystemRemoveTool)
+
 void UConstructionSystemRemoveTool::InitializeTool(UConstructionSystemComponent* ConstructionComponent)
 {
 	UConstructionSystemTool::InitializeTool(ConstructionComponent);

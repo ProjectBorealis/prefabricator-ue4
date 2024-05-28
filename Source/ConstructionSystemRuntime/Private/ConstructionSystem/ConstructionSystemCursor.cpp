@@ -11,6 +11,8 @@
 #include "Components/PrimitiveComponent.h"
 #include "Engine/World.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ConstructionSystemCursor)
+
 void UConstructionSystemCursor::RecreateCursor(UWorld* InWorld, UPrefabricatorAssetInterface* InCursorPrefab)
 {
 	DestroyCursor();

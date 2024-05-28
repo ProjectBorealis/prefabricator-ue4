@@ -10,6 +10,8 @@
 
 #include "UObject/Package.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrefabActor)
+
 DEFINE_LOG_CATEGORY_STATIC(LogPrefabActor, Log, All);
 
 

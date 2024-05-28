@@ -23,6 +23,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Net/UnrealNetwork.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ConstructionSystemComponent)
+
 DEFINE_LOG_CATEGORY_STATIC(LogConstructionSystem, Log, All);
 
 UConstructionSystemComponent::UConstructionSystemComponent()

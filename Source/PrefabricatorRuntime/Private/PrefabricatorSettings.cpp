@@ -4,6 +4,8 @@
 
 #include "Components/DrawFrustumComponent.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrefabricatorSettings)
+
 UPrefabricatorSettings::UPrefabricatorSettings()
 {
 	//Do not change default behavior.

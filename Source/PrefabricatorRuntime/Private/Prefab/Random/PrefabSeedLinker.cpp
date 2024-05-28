@@ -5,6 +5,8 @@
 #include "Components/BillboardComponent.h"
 #include "UObject/ConstructorHelpers.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(PrefabSeedLinker)
+
 /////////////////////////////////// UPrefabSeedLinkerComponent ///////////////////////////////////
 
 UPrefabSeedLinkerComponent::UPrefabSeedLinkerComponent(const FObjectInitializer& ObjectInitializer)
