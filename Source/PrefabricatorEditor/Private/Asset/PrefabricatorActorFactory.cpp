@@ -1,4 +1,4 @@
-//$ Copyright 2015-23, Code Respawn Technologies Pvt Ltd - All Rights Reserved $//
+//$ Copyright 2015-24, Code Respawn Technologies Pvt Ltd - All Rights Reserved $//
 
 #include "Asset/PrefabricatorActorFactory.h"
 
@@ -63,6 +63,7 @@ void UPrefabricatorActorFactory::PostSpawnActor(UObject* Asset, AActor* NewActor
 
 }
 
+/*
 void UPrefabricatorActorFactory::PostCreateBlueprint(UObject* Asset, AActor* CDO)
 {
 	APrefabActor* PrefabActor = Cast<APrefabActor>(CDO);
@@ -73,6 +74,7 @@ void UPrefabricatorActorFactory::PostCreateBlueprint(UObject* Asset, AActor* CDO
 	}
 	UE_LOG(LogPrefabricatorActorFactory, Log, TEXT("Call: UPrefabricatorActorFactory::PostCreateBlueprint"));
 }
+*/
 
 bool UPrefabricatorActorFactory::CanCreateActorFrom(const FAssetData& AssetData, FText& OutErrorMsg)
 {

@@ -1,4 +1,4 @@
-//$ Copyright 2015-23, Code Respawn Technologies Pvt Ltd - All Rights Reserved $//
+//$ Copyright 2015-24, Code Respawn Technologies Pvt Ltd - All Rights Reserved $//
 
 #include "Prefab/PrefabTools.h"
 
@@ -10,15 +10,11 @@
 #include "Utils/PrefabricatorService.h"
 #include "Utils/PrefabricatorStats.h"
 
-#include "Engine/Selection.h"
-#include "EngineUtils.h"
+#include "Components/PrimitiveComponent.h"
+#include "Engine/World.h"
 #include "GameFramework/Actor.h"
 #include "HAL/UnrealMemory.h"
 #include "PropertyPathHelpers.h"
-#include "Serialization/ObjectAndNameAsStringProxyArchive.h"
-#include "Serialization/ObjectReader.h"
-#include "Serialization/ObjectWriter.h"
-#include "UObject/NoExportTypes.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogPrefabTools, Log, All);
 
