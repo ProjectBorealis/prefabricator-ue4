@@ -62,7 +62,7 @@ struct PREFABRICATORRUNTIME_API FPrefabricatorComponentData {
 	FString ComponentName;
 
 	UPROPERTY()
-	TArray<UPrefabricatorProperty*> Properties;
+	TArray<TObjectPtr<UPrefabricatorProperty>> Properties;
 };
 
 USTRUCT()
@@ -82,7 +82,7 @@ struct PREFABRICATORRUNTIME_API FPrefabricatorActorData {
 	FSoftClassPath ClassPathRef;
 
 	UPROPERTY()
-	TArray<UPrefabricatorProperty*> Properties;
+	TArray<TObjectPtr<UPrefabricatorProperty>> Properties;
 
 	UPROPERTY()
 	TArray<FPrefabricatorComponentData> Components;

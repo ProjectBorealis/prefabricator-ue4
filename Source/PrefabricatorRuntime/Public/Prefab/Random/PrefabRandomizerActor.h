@@ -44,7 +44,7 @@ public:
 
 	/** If left empty, everything in the level will be randomized.  If set, only the actors in the list will be randomized. */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Prefabricator")
-	TArray<APrefabActor*> ActorsToRandomize;
+	TArray<TObjectPtr<APrefabActor>> ActorsToRandomize;
 
 private:
 	TSharedPtr<class FPrefabBuildSystem> BuildSystem;

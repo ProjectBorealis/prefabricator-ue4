@@ -59,7 +59,7 @@ private:
 	TObjectPtr<UMaterialInterface> CursorInvalidMaterial;
 
 	UPROPERTY(Transient)
-	TArray<UPrefabricatorConstructionSnapComponent*> SnapComponents;
+	TArray<TObjectPtr<UPrefabricatorConstructionSnapComponent>> SnapComponents;
 
 	UPROPERTY(Transient)
 	int32 ActiveSnapComponentIndex = 0;
